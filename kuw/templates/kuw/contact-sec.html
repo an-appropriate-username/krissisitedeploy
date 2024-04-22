@@ -1,0 +1,50 @@
+{% load static %}
+
+<section class="page-section bg-primary" id="contact">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="text-white mt-0">Enquiry Form</h2>
+                <hr class="divider divider-light" />
+                <p class="text-muted mb-5">To book an appointment, please fill out the form below! <br> <small>Unsure what to write? Click <a href="faq">here</a> to read my FAQ.</small></p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <!-- FORM -->
+                <form action="" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    {% csrf_token %}
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="text" name="name" maxlength="200" required="" id="id_name" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Full name</label>
+                        <div class="invalid-feedback" data-sb-feedback="id_name:required">A name is required.</div>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="email" name="email" maxlength="254" required="" id="id_email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <label for="email">Email address</label>
+                        <div class="invalid-feedback" data-sb-feedback="id_email:required">An email is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="id_email:email">Email is not valid.</div>
+                    </div>
+                    <!-- Phone number input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="tel" name="phone" maxlength="100" required="" id="id_phone" placeholder="(123) 456-7890" data-sb-validations="required" />
+                        <label for="phone">Phone number</label>
+                        <div class="invalid-feedback" data-sb-feedback="id_phone:required">A phone number is required.</div>
+                    </div>
+                    <!-- Message input-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" type="text" name="message" cols="40" rows="10" required="" id="id_message" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                        <label for="message">Message</label>
+                        <div class="invalid-feedback" data-sb-feedback="id_message:required">A message is required.</div>
+                    </div>
+                    <!-- Submit Button-->
+                    <div class="d-grid">
+                        <input class="btn btn-primary btn-xl" type="submit" value="Submit">
+                        
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
