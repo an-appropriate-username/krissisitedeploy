@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section class="page-section bg-primary" id="faq">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+
+                <h2 class="text-white mt-0">Delete Submisson?</h2>
+                <hr class="divider divider-light"/>
+
+                    <div>
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <p class="text-white-75 mb-5">Are you want to delete the submisson from "{{obj}}"?</p>
+                                <a href="{{request.META.HTTP_REFERER}}">Go back</a> 
+                                <i class="bi bi-dot"></i>
+                            <input type="submit" value="Confirm" class="btn btn-success">
+                        </form>
+                        <hr class="divider divider-light"/>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

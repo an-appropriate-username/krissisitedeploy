@@ -12,7 +12,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
             <div class="col-lg-6">
                 <!-- FORM -->
-                <form action="" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form action="" method="post" id="contactForm" enctype="multipart/form-data" data-sb-form-api-token="API_TOKEN">
                     {% csrf_token %}
                     <!-- Name input-->
                     <div class="form-floating mb-3">
@@ -35,16 +35,39 @@
                     </div>
                     <!-- Message input-->
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" type="text" name="message" cols="40" rows="10" required="" id="id_message" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                        <label for="message">Message</label>
+                        <textarea class="form-control" type="text" name="message" cols="40" rows="10" required="" id="id_message" placeholder="Enter your message here..." style="height: 6rem" data-sb-validations="required"></textarea>
+                        <label for="message">Your Idea</label>
+                        <div class="invalid-feedback" data-sb-feedback="id_message:required">A message is required.</div>
+                    </div>
+                    <!-- Photo input-->
+                    <div>
+                        <small class="text-muted mb-5">  Upload reference photo here: </small>
+                        <br>
+                        <label class="custom-file-upload">
+                        <input class="form-control" type="file" name="photo" cols="40" rows="10" width="10" required="" accept="image/*" id="id_photo">
+                        </label>
+                        <br><br>
+                    </div>
+                    <!-- Availability input-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" type="text" name="availability" cols="40" rows="10" required="" id="id_message" placeholder="Enter your message here..." style="height: 3.5rem" data-sb-validations="required"></textarea>
+                        <label for="message">Availability</label>
                         <div class="invalid-feedback" data-sb-feedback="id_message:required">A message is required.</div>
                     </div>
                     <!-- Submit Button-->
                     <div class="d-grid">
                         <input class="btn btn-primary btn-xl" type="submit" value="Submit">
-                        
+                    </div>   
                 </form>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    .custom-file-upload {
+        padding: 10px 0px;
+        display: inline-block;
+        cursor: pointer;
+}
+</style>
