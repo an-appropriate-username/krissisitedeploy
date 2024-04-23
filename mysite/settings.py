@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,6 +16,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -23,10 +25,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kuw.apps.KuwConfig',
     'bootstrap5',
+    'PIL',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -54,6 +58,10 @@ TEMPLATES = [
         },
     },
 ]
+
+# Grapelli Settings
+
+GRAPPELLI_ADMIN_TITLE = "K.U. Admin Site"
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
@@ -103,11 +111,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static/')
+
+STATIC_URL = 'static/'
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "assets",
 ]
+
+MEDIA_ROOT = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+ADMIN_EMAILS = ['krissi.urbatzka@googlemail.com']
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "djangosubmissonform@gmail.com"
+EMAIL_HOST_PASSWORD = "ubmd epkq izdl kwwv"
+
 
 
 # Default primary key field type
