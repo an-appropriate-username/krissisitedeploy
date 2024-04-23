@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-pos#uncfr87xqn55dz42^@p2+h@lkv&qx5kpkc3qr%zp&v+r9$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "https://krissisitedeploy.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "krissisitedeploy.onrender.com"]
 
 
 # Application definition
