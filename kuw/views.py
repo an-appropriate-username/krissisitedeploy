@@ -14,11 +14,12 @@ def home(request):
             email = form.cleaned_data["email"]
             phone = form.cleaned_data["phone"]
             message = form.cleaned_data["message"]
+            photo = form.cleaned_data["photo"]
             availability = form.cleaned_data["availability"]
-            web_link = "http://127.0.0.1:8000/admin/kuw/contact/"
+            web_link = "https://krissisitedeploy.onrender.com/admin/login/"
 
             send_mail(details, #subject
-                        f"NAME:\n {form.cleaned_data['name']}\n\n PHONE:\n {phone}\n\n EMAIL:\n {email}\n\n MESSAGE:\n {message}\n\n AVAILABILITY:\n {availability}\n\n VIEW FULL ENQUIRY:\n{web_link}",  #message
+                        f"NAME:\n {form.cleaned_data['name']}\n\n PHONE:\n {phone}\n\n EMAIL:\n {email}\n\n MESSAGE:\n {message}\n\n PHOTO:\n {photo.url}\n\n AVAILABILITY:\n {availability}\n\n VIEW FULL ENQUIRY:\n{web_link}",  #message
                         None, # from
                         settings.ADMIN_EMAILS) #to
             return redirect ('success')
